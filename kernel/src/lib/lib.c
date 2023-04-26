@@ -1,16 +1,12 @@
 #include "lib.h"
+#include <stdbool.h>
 
-void *memcpy(void *dest, const void *src, size_t n)
+void *memcpy(char *dst, char *src, int n)
 {
-    uint8_t *pdest = (uint8_t *)dest;
-    const uint8_t *psrc = (const uint8_t *)src;
-
-    for (size_t i = 0; i < n; i++)
-    {
-        pdest[i] = psrc[i];
-    }
-
-    return dest;
+    char *p = dst;
+    while (n--)
+        *dst++ = *src++;
+    return p;
 }
 
 void *memset(void *s, int c, size_t n)
@@ -126,5 +122,60 @@ void itoa(char *buf, unsigned long int n, int base)
         tmp = buf[j];
         buf[j] = buf[i];
         buf[i] = tmp;
+    }
+}
+
+int strlen(char s[])
+{
+    int i = 0;
+    while (s[i] != '\0')
+    {
+        ++i;
+    }
+    return i;
+}
+
+int strcmp(char s1[], char s2[])
+{
+    int i;
+    for (i = 0; s1[i] == s2[i]; i++)
+    {
+        if (s1[i] == '\0')
+            return 0;
+    }
+    return s1[i] - s2[i];
+}
+
+void append(char s[], char n)
+{
+    int len = strlen(s);
+    s[len] = n;
+    s[len + 1] = '\0';
+}
+
+double pow(double base, double exponent)
+{
+    if (exponent == 0)
+    {
+        return 1;
+    }
+
+    double result = base;
+    int i;
+
+    for (i = 1; i < exponent; i++)
+    {
+        result *= base;
+    }
+
+    return result;
+}
+
+void E9_print(char *string)
+{
+    while (*string)
+    {
+        outb(0xE9, *string);
+        string++;
     }
 }

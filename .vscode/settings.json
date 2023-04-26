@@ -1,5 +1,23 @@
 {
     "files.associations": {
-        "limine.h": "c"
-    }
+        "boot_info.h": "c",
+        "moon-graphics.h": "c",
+        "random": "c",
+        "libframebuf.h": "c",
+        "libfbfonts.h": "c",
+        "libfbbitmaps.h": "c",
+        "stdint.h": "c",
+        "multiboot.h": "c",
+        "libasg.h": "c",
+        "rmusr.h": "c",
+        "graphics.h": "c",
+        "lib.h": "c",
+        "memory.h": "c",
+        "sstream": "c",
+        "string": "c",
+        "*.tcc": "c",
+        "ostream": "c",
+        "functional": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
